@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Controls</title>
+    <style>
+        /* Base styles */
+        :root {
+            --primary-color: #0A84FF;
+            --success-color: #34C759;
+            --warning-color: #FF9F0A;
+            --error-color: #FF3B30;
+            --background-color: #000000;
+            --card-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Add your styles here */
+    </style>
+    <script src="js/config.js"></script>
+    <script src="js/controls.js"></script>
+    <script src="js/signal.js"></script>
+</head>
+<body>
+    <!-- Implementation structure -->
+    <div class="container">
+        <!-- Device cards will be dynamically generated -->
+    </div>
+    
+    <script>
+        // Dynamic content generation
+        function generateDeviceCards() {
+            const container = document.querySelector('.container');
+            
+            Object.entries(deviceConfig).forEach(([id, device]) => {
+                container.appendChild(createDeviceCard(id, device));
+            });
+        }
+        
+        function createDeviceCard(id, device) {
+            // Create card HTML
+            const card = document.createElement('div');
+            card.className = 'device-card';
+            // Add card content
+            return card;
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            generateDeviceCards();
+            startSignalMonitoring();
+        });
+    </script>
+</body>
+</html>
